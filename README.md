@@ -1,2 +1,4 @@
 # calculator
-A calculator in js
+
+A calculator in javascript and html.
+
