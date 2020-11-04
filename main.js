@@ -1,4 +1,4 @@
-import { newStatus, execCommand, getOutput } from '/modules/calculator.js'
+import { newStatus, execCommand, getOutput } from './modules/calculator.js'
 
 let status = {}
 
