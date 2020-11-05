@@ -1,3 +1,21 @@
+/**
+ * @module calculator
+ */
+
+/**
+ * Defines the state of the calculator.
+ *
+ * Every function returns the updated state.
+ *
+ * @typedef module:calculator.Status
+ * @type {object}
+ * @property {string} acc Accumulator value.
+ * @property {string} op Operand value.
+ * @property {string} cmd Command value.
+ * @property {*} functions External functions.
+ */
+
+/** @todo document this */
 async function concatAccumulator (status, text) {
   return {
     acc: status.acc + text,
@@ -13,7 +31,6 @@ async function clearAccumulator (status) {
     op: status.op,
     cmd: status.cmd,
     functions: status.functions
-
   }
 }
 
@@ -55,7 +72,7 @@ async function exec (status) {
   return execFun(status.cmd, status.op, status.acc)
     .then(res => {
       return {
-        acc: res,
+        acc: '' + res,
         cmd: '=',
         op: '',
         functions: status.functions
@@ -112,6 +129,22 @@ async function toggleAccumulatorSign (status) {
   }
 }
 
+/**
+ * Removes the last number from the accumulator and returns the updated state.
+ *
+ * @param {module:calculator.Status} status The current state of the calculator.
+ *
+ * @returns {module:calculator.Status} The updated state.
+ */
+async function removeLastNumber (status) {
+  return {
+    acc: status.acc.slice(0, -1),
+    cmd: status.cmd,
+    op: status.op,
+    functions: status.functions
+  }
+}
+
 async function execCommand (status, cmd) {
   console.log('entered: ', cmd)
   switch (cmd) {
@@ -129,7 +162,11 @@ async function execCommand (status, cmd) {
       return resetIfEqual(status)
         .then(res => concatAccumulator(res, cmd))
     case 'clear':
-      return clearAccumulator(status)
+      if (status.acc.length) {
+        return clearAccumulator(status)
+      } else {
+        return newStatus(status.functions)
+      }
     case 'plus':
       return storeOpAndClear(status, '+')
     case 'minus':
@@ -153,7 +190,7 @@ async function execCommand (status, cmd) {
     case 'copy':
       return execExternalFunction(status, 'copy')
     case 'delete':
-      return newStatus(status.functions)
+      return removeLastNumber(status)
     default:
       return error(status)
   }
