@@ -5,7 +5,9 @@
   "main": "src/modules/calculator.js",
   "type": "module",
   "scripts": {
-    "test": "standard && c8 mocha"
+    "test": "standard && mocha",
+    "coverage": "c8 --reporter=html --reports-dir=reports/coverage mocha",
+    "jsdoc": "jsdoc --package package.json --readme README.md --recurse --destination reports/doc src/"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
   "devDependencies": {
     "c8": "^7.3.5",
     "mocha": "^8.2.1",
-    "standard": "^16.0.1"
+    "standard": "^16.0.1",
+    "jsdoc": "^3.6.6"
   }
 }
