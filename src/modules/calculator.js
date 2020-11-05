@@ -1,3 +1,21 @@
+/**
+ * @module calculator
+ */
+
+/**
+ * Defines the state of the calculator.
+ *
+ * Every function returns the updated state.
+ *
+ * @typedef module:calculator.Status
+ * @type {object}
+ * @property {string} acc Accumulator value.
+ * @property {string} op Operand value.
+ * @property {string} cmd Command value.
+ * @property {*} functions External functions.
+ */
+
+/** @todo document this */
 async function concatAccumulator (status, text) {
   return {
     acc: status.acc + text,
@@ -13,7 +31,6 @@ async function clearAccumulator (status) {
     op: status.op,
     cmd: status.cmd,
     functions: status.functions
-
   }
 }
 
