@@ -7,7 +7,8 @@
   "scripts": {
     "test": "standard && mocha",
     "coverage": "c8 --reporter=html --reports-dir=reports/coverage mocha",
-    "jsdoc": "jsdoc --package package.json --readme README.md --recurse --destination reports/doc src/"
+    "doc": "jsdoc --package package.json --readme README.md --recurse --destination reports/doc src/",
+    "fmt": "standard --fix"
   },
   "repository": {
     "type": "git",
