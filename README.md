@@ -2,6 +2,11 @@
 
 A calculator in javascript and html.
 
+## Status
+
+![coverage](https://codecov.io/gh/scompo/calculator/branch/main/graph/badge.svg)
+![tests](https://github.com/scompo/calculator/workflows/Node.js%20CI/badge.svg)
+
 ## Use it
 
 It's hosted in github pages, click [here](https://scompo.github.io/calculator/) to use it.
@@ -18,7 +23,7 @@ Clone the repository.
 
 Change directory into the cloned project.
 
-    cd calculator
+    cd calculator/src
 
 ### Serve it
 
