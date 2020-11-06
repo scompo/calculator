@@ -63,7 +63,7 @@ async function storeOpAndClear (status, cmd) {
   return {
     acc: '',
     op: status.acc,
-    cmd: cmd,
+    cmd: status.cmd,
     functions: status.functions
   }
 }
@@ -112,16 +112,17 @@ async function resetIfEqual (status) {
 }
 
 async function toggleAccumulatorSign (status) {
-  if (status.acc.startsWith('-')) {
+  const acc = status.acc || ''
+  if (acc.startsWith('-')) {
     return {
-      acc: status.acc.replace('-', ''),
+      acc: acc.replace('-', ''),
       op: status.op,
       cmd: status.cmd,
       functions: status.functions
     }
   } else {
     return {
-      acc: '-' + status.acc,
+      acc: '-' + acc,
       op: status.op,
       cmd: status.cmd,
       functions: status.functions
@@ -138,7 +139,7 @@ async function toggleAccumulatorSign (status) {
  */
 async function removeLastNumber (status) {
   return {
-    acc: status.acc.slice(0, -1),
+    acc: ((status.acc !== null && status.acc !== undefined) ? status.acc.slice(0, -1) : ''),
     cmd: status.cmd,
     op: status.op,
     functions: status.functions
@@ -146,7 +147,6 @@ async function removeLastNumber (status) {
 }
 
 async function execCommand (status, cmd) {
-  console.log('entered: ', cmd)
   switch (cmd) {
     case '1':
     case '2':
@@ -201,5 +201,13 @@ export {
   execCommand,
   getOutput,
   clearAccumulator,
-  error
+  error,
+  removeLastNumber,
+  toggleAccumulatorSign,
+  storeOpAndClear,
+  exec,
+  concatAccumulator,
+  unit,
+  resetIfEqual,
+  execExternalFunction
 }
