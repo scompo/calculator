@@ -1,9 +1,7 @@
 language: node_js
 node_js:
   - 14
-jobs:
-  include:
-    - stage: test
-      script: npm ci
-      script: npx c8 --reporter=lcovonly mocha
-      script: bash <(curl -s https://codecov.io/bash)
+script:
+  - npm ci
+  - npx c8 --reporter=lcovonly mocha
+  - bash <(curl -s https://codecov.io/bash)
