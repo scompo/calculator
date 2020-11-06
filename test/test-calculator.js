@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 
-import { newStatus } from '../src/modules/calculator.js'
+import { newStatus, clearAccumulator } from '../src/modules/calculator.js'
 import assert from 'assert'
 
 describe('calculator', () => {
@@ -14,6 +14,20 @@ describe('calculator', () => {
           test: 'test'
         }
       })
+    })
+  })
+  describe('clearAccumulator', () => {
+    it('clears the accumulator', async () => {
+      assert.strictEqual((await clearAccumulator({ acc: 'not clear' })).acc, '')
+    })
+    it('returns the original operand', async () => {
+      assert.strictEqual((await clearAccumulator({ op: 'original' })).op, 'original')
+    })
+    it('returns the original command', async () => {
+      assert.strictEqual((await clearAccumulator({ cmd: 'original' })).cmd, 'original')
+    })
+    it('returns the original functions', async () => {
+      assert.strictEqual((await clearAccumulator({ functions: 'original' })).functions, 'original')
     })
   })
 })

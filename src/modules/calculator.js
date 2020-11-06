@@ -199,5 +199,6 @@ async function execCommand (status, cmd) {
 export {
   newStatus,
   execCommand,
-  getOutput
+  getOutput,
+  clearAccumulator
 }
