@@ -4,20 +4,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog][keep-a-changelog]
 and this project adheres to [Semantic Versioning][sem-ver].
 
-## [Unreleased]
+## [Unreleased][Unreleased]
+
+[0.0.3][0.0.3] - 2020/11/07
 ### Added
-- Added unit tests for missing functions in `calculator.js`.
+-   Added unit tests for missing functions in `calculator.js`.
 
 ### Changed
-- Moved `getOutput` from `calculator.js` to `main.js`.
+-   Moved `getOutput` from `calculator.js` to `main.js`.
 
-## [0.0.2] - 2020-11-05
+## [0.0.2][0.0.2] - 2020-11-05
 ### Added
 - Added this changelog file.
 - Exported the styles from the `index.html` page to the `style.css` file.
 - Added a unit test for `calculator.newStatus` function.
 - Added documentation to a couple of functions in `calculator.js`.
-Basically to test [JSDoc][jsdoc].
+Basically to test [JSDoc][jsdoc] documentation features.
 - Added `test`, `doc` and `fmt` scripts to `package.json`.
 
 ### Changed
@@ -39,7 +41,8 @@ Now it deletes the last char from the accumulator as expected.
 - Added the `main.js` file for the page setup.
 - Setup GitHub pages to serve the application.
 
-[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.0.3...HEAD
+[0.0.2]: https://github.com/scompo/calculator/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/scompo/calculator/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/scompo/calculator/releases/tag/v0.0.1
 
