@@ -1,6 +1,10 @@
-import { newStatus, execCommand, getOutput } from './modules/calculator.js'
+import { newStatus, execCommand } from './modules/calculator.js'
 
 let status = {}
+
+async function getOutput (status) {
+  return (status.op + ' ' + status.cmd + ' ' + status.acc).trim()
+}
 
 async function main () {
   const display = document.getElementById('out')
