@@ -13,9 +13,18 @@
  * @property {string} op Operand value.
  * @property {string} cmd Command value.
  * @property {*} functions External functions.
+ * @property {module:calculator.externalFunction} [functions.copy] A function that returns a promise to call on the 'copy' command.
  */
 
-/** @todo document this */
+/**
+ * Adds the text to the accumulator and returns the updated state.
+ *
+ * @function
+ * @param {module:calculator.Status} status The current state of the calculator.
+ * @param {string} text The text to add.
+ *
+ * @returns {module:calculator.Status} The updated state.
+ */
 async function concatAccumulator (status, text) {
   return {
     acc: status.acc + text,
@@ -25,6 +34,14 @@ async function concatAccumulator (status, text) {
   }
 }
 
+/**
+ * Clears the accumulator and returns the updated state.
+ *
+ * @param {module:calculator.Status} status The current state of the calculator.
+ * @param {string} text The text to add.
+ *
+ * @returns {module:calculator.Status} The updated state.
+ */
 async function clearAccumulator (status) {
   return {
     acc: '',
@@ -34,12 +51,26 @@ async function clearAccumulator (status) {
   }
 }
 
-async function execExternalFunction (status, funcName) {
+/**
+ * Execute an external function, if present and returns the current state.
+ *
+ * @param {module:calculator.Status} status The current state of the calculator.
+ *
+ * @returns {module:calculator.Status} The current state.
+ */
+function execExternalFunction (status, funcName) {
   const f = (status && status.functions && status.functions[funcName]) ? status.functions[funcName] : unit
   return f(status)
     .then(() => status)
 }
 
+/**
+ * Returns the status in input.
+ *
+ * @param {module:calculator.Status} status The current state of the calculator.
+ *
+ * @returns {module:calculator.Status} The same state given.
+ */
 async function unit (status) {
   return status
 }
@@ -55,6 +86,14 @@ async function execFun (cmd, op1, op2) {
   }
 }
 
+/**
+ * Moves the current accumulator value in operand, clears the accumulator, stores the command in cmd and returns the updated state.
+ *
+ * @param {module:calculator.Status} status The current state of the calculator.
+ * @param {string} text Command to store.
+ *
+ * @returns {module:calculator.Status} The updated state.
+ */
 async function storeOpAndClear (status, cmd) {
   return {
     acc: '',
@@ -64,6 +103,13 @@ async function storeOpAndClear (status, cmd) {
   }
 }
 
+/**
+ * Execute the current status and returns the updated status.
+ *
+ * @param {module:calculator.Status} status The current state of the calculator.
+ *
+ * @returns {module:calculator.Status} The updated state.
+ */
 async function exec (status) {
   return execFun(status.cmd, status.op, status.acc)
     .then(res => {
@@ -76,6 +122,14 @@ async function exec (status) {
     })
 }
 
+/**
+ * Sets the operand to 'E' and returns the updated state.
+ *
+ * @param {module:calculator.Status} status The current state of the calculator.
+ * @param {string} text The text to add.
+ *
+ * @returns {module:calculator.Status} The updated state.
+ */
 async function error (status) {
   return {
     acc: status.acc,
@@ -85,6 +139,22 @@ async function error (status) {
   }
 }
 
+/**
+ * An external function to call on events.
+ *
+ * @async
+ * @callback module:calculator.externalFunction
+ * @param {module:calculator.Status} status The current status.
+ */
+
+/**
+ * Removes the last number from the accumulator and returns the updated state.
+ *
+ * @param {*} functions An object of functions to call back.
+ * @param {module:calculator.externalFunction} functions.copy A function that returns a promise to call on the 'copy' command.
+ *
+ * @returns {module:calculator.Status} The updated state.
+ */
 async function newStatus (functions) {
   return {
     acc: '',
@@ -94,6 +164,13 @@ async function newStatus (functions) {
   }
 }
 
+/**
+ * Clears the status if the command is "=" and returns the updated state.
+ *
+ * @param {module:calculator.Status} status The current state of the calculator.
+ *
+ * @returns {module:calculator.Status} The updated state.
+ */
 async function resetIfEqual (status) {
   if (status.cmd === '=') {
     return {
@@ -107,6 +184,13 @@ async function resetIfEqual (status) {
   }
 }
 
+/**
+ * Changes the sign of the accumulator and returns the updated state.
+ *
+ * @param {module:calculator.Status} status The current state of the calculator.
+ *
+ * @returns {module:calculator.Status} The updated state.
+ */
 async function toggleAccumulatorSign (status) {
   const acc = status.acc || ''
   if (acc.startsWith('-')) {
@@ -142,6 +226,14 @@ async function removeLastNumber (status) {
   }
 }
 
+/**
+ * Executes a command.
+ *
+ * @param {module:calculator.Status} status The current state of the calculator.
+ * @param {module:calculator.Command} cmd The command to execute ("0" to "9", ".", "plus", "minus", "div", "mul", "mod", "equal", "copy", "delete", "clear").
+ *
+ * @returns {module:calculator.Status} The updated state.
+ */
 async function execCommand (status, cmd) {
   switch (cmd) {
     case '1':
@@ -196,12 +288,12 @@ export {
   newStatus,
   execCommand,
   clearAccumulator,
+  concatAccumulator,
   error,
   removeLastNumber,
   toggleAccumulatorSign,
   storeOpAndClear,
   exec,
-  concatAccumulator,
   unit,
   resetIfEqual,
   execExternalFunction
