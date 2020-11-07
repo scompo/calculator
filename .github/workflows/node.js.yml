@@ -29,3 +29,4 @@ jobs:
     - run: npm test
     - run: npx c8 --reporter=lcovonly mocha
     - run: bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
+    - run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report || echo "Codacy did not collect coverage reports"
