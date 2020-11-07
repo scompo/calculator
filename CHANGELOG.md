@@ -5,13 +5,18 @@ The format is based on [Keep a Changelog][keep-a-changelog]
 and this project adheres to [Semantic Versioning][sem-ver].
 
 ## [Unreleased]
+
+## [0.0.4] - 2020/11/07
 ### Added
 - Added documentation to functions in `calculator.js`.
 
 ### Changed
-- formatted style.css
+- Formatted style.css
 
-[0.0.3] - 2020/11/07
+### Fixed
+- Fixed [issue #7][issue7].
+
+## [0.0.3] - 2020/11/07
 ### Added
 - Added unit tests for missing functions in `calculator.js`.
 
@@ -46,12 +51,14 @@ Now it deletes the last char from the accumulator as expected.
 - Added the `main.js` file for the page setup.
 - Setup GitHub pages to serve the application.
 
-[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.0.3...HEAD
+[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.0.4...HEAD
+[0.0.4]: https://github.com/scompo/calculator/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/scompo/calculator/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/scompo/calculator/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/scompo/calculator/releases/tag/v0.0.1
 
-[issue2]:https://github.com/scompo/calculator/issues/2
+[issue7]: https://github.com/scompo/calculator/issues/7
+[issue2]: https://github.com/scompo/calculator/issues/2
 [jsdoc]: https://github.com/jsdoc/jsdoc
 [keep-a-changelog]: https://keepachangelog.com/en/1.0.0/
 [sem-ver]: https://semver.org/spec/v2.0.0.html
