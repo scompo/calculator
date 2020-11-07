@@ -42,7 +42,7 @@ Now it deletes the last char from the accumulator as expected.
 - Setup GitHub pages to serve the application.
 
 [Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.0.3...HEAD
-[0.0.2]: https://github.com/scompo/calculator/compare/v0.0.2...v0.0.3
+[0.0.3]: https://github.com/scompo/calculator/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/scompo/calculator/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/scompo/calculator/releases/tag/v0.0.1
 
