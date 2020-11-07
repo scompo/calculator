@@ -1,6 +1,6 @@
 {
   "name": "calculator",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "a calculator in html and js",
   "main": "src/modules/calculator.js",
   "type": "module",
