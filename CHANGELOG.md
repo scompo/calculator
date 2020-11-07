@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog][keep-a-changelog]
 and this project adheres to [Semantic Versioning][sem-ver].
 
 ## [Unreleased]
+### Added
+- Added unit tests for missing functions in `calculator.js`.
+
+### Changed
+- Moved `getOutput` from `calculator.js` to `main.js`.
 
 ## [0.0.2] - 2020-11-05
 ### Added

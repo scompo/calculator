@@ -30,7 +30,7 @@ describe('calculator', () => {
     })
   })
   describe('concatAccumulator', () => {
-    it('appends the thext to the accumulator returned', async () => {
+    it('appends the text to the accumulator returned', async () => {
       assert.strictEqual((await concatAccumulator({ acc: 'thi' }, 's')).acc, 'this')
     })
     it('returns the original operand', async () => {
@@ -128,13 +128,13 @@ describe('calculator', () => {
   })
   describe('storeOpAndClear', () => {
     it('clears the accumulator', async () => {
-      assert.strictEqual((await storeOpAndClear({ acc: 'acc value' })).acc, '')
+      assert.strictEqual((await storeOpAndClear({ acc: 'acc value' }, '+')).acc, '')
     })
     it('moves the value of the accumulator into the operand', async () => {
-      assert.strictEqual((await storeOpAndClear({ acc: 'old acc value' })).op, 'old acc value')
+      assert.strictEqual((await storeOpAndClear({ acc: 'old acc value' }, '+')).op, 'old acc value')
     })
-    it('returns the original command', async () => {
-      assert.strictEqual((await storeOpAndClear({ cmd: 'original' })).cmd, 'original')
+    it('returns the updated command', async () => {
+      assert.strictEqual((await storeOpAndClear({ cmd: 'original' }, '+')).cmd, '+')
     })
     it('returns the original functions', async () => {
       assert.strictEqual((await storeOpAndClear({ functions: 'original' })).functions, 'original')
@@ -303,76 +303,183 @@ describe('calculator', () => {
     })
   })
   describe('execCommand', () => {
-    const tests = [{
-      args: {
-        status: { acc: '' },
-        command: '1'
-      },
-      expected: '1'
-    }, {
-      args: {
-        status: { acc: '' },
-        command: '2'
-      },
-      expected: '2'
-    }, {
-      args: {
-        status: { acc: '' },
-        command: '3'
-      },
-      expected: '3'
-    }, {
-      args: {
-        status: { acc: '' },
-        command: '4'
-      },
-      expected: '4'
-    }, {
-      args: {
-        status: { acc: '' },
-        command: '5'
-      },
-      expected: '5'
-    }, {
-      args: {
-        status: { acc: '' },
-        command: '6'
-      },
-      expected: '6'
-    }, {
-      args: {
-        status: { acc: '' },
-        command: '7'
-      },
-      expected: '7'
-    }, {
-      args: {
-        status: { acc: '' },
-        command: '8'
-      },
-      expected: '8'
-    }, {
-      args: {
-        status: { acc: '' },
-        command: '9'
-      },
-      expected: '9'
-    }, {
-      args: {
-        status: { acc: '' },
-        command: '0'
-      },
-      expected: '0'
-    }, {
-      args: {
-        status: { acc: '' },
-        command: '.'
-      },
-      expected: '.'
-    }]
-    tests.forEach(test => {
-      it('with the ' + test.args.command + ' command it concatenates it to the accumulator', async () => {
-        assert.strictEqual((await execCommand(test.args.status, test.args.command)).acc, test.expected)
+    context('numbers and dot', () => {
+      const tests = [{
+        args: {
+          status: { acc: '' },
+          command: '1'
+        },
+        expected: '1'
+      }, {
+        args: {
+          status: { acc: '' },
+          command: '2'
+        },
+        expected: '2'
+      }, {
+        args: {
+          status: { acc: '' },
+          command: '3'
+        },
+        expected: '3'
+      }, {
+        args: {
+          status: { acc: '' },
+          command: '4'
+        },
+        expected: '4'
+      }, {
+        args: {
+          status: { acc: '' },
+          command: '5'
+        },
+        expected: '5'
+      }, {
+        args: {
+          status: { acc: '' },
+          command: '6'
+        },
+        expected: '6'
+      }, {
+        args: {
+          status: { acc: '' },
+          command: '7'
+        },
+        expected: '7'
+      }, {
+        args: {
+          status: { acc: '' },
+          command: '8'
+        },
+        expected: '8'
+      }, {
+        args: {
+          status: { acc: '' },
+          command: '9'
+        },
+        expected: '9'
+      }, {
+        args: {
+          status: { acc: '' },
+          command: '0'
+        },
+        expected: '0'
+      }, {
+        args: {
+          status: { acc: '' },
+          command: '.'
+        },
+        expected: '.'
+      }]
+      tests.forEach(test => {
+        it('with the ' + test.args.command + ' command it concatenates it to the accumulator', async () => {
+          assert.strictEqual((await execCommand(test.args.status, test.args.command)).acc, test.expected)
+        })
+      })
+    })
+    it('returns error for an unknown command', async () => {
+      assert.deepStrictEqual((await execCommand(await newStatus({}), 'unknown')), { acc: '', cmd: '', op: 'E', functions: {} })
+    })
+    it('deletes a char from the accumulator with del', async () => {
+      assert.deepStrictEqual((await execCommand({ acc: '123', cmd: '', op: '', functions: {} }, 'delete')), { acc: '12', cmd: '', op: '', functions: {} })
+    })
+    context('math commands', () => {
+      const tests = [{
+        args: {
+          status: { acc: '10', op: '', cmd: '' },
+          command: 'plus'
+        },
+        expected: {
+          cmd: '+',
+          acc: '',
+          op: '10'
+        }
+      }, {
+        args: {
+          status: { acc: '10', op: '', cmd: '' },
+          command: 'mul'
+        },
+        expected: {
+          cmd: '*',
+          acc: '',
+          op: '10'
+        }
+      }, {
+        args: {
+          status: { acc: '10', op: '', cmd: '' },
+          command: 'div'
+        },
+        expected: {
+          cmd: '/',
+          acc: '',
+          op: '10'
+        }
+      }, {
+        args: {
+          status: { acc: '10', op: '', cmd: '' },
+          command: 'mod'
+        },
+        expected: {
+          cmd: '%',
+          acc: '',
+          op: '10'
+        }
+      }]
+      tests.forEach(test => {
+        it('with the ' + test.args.command + ' command it stores the command in cmd', async () => {
+          assert.strictEqual((await execCommand(test.args.status, test.args.command)).cmd, test.expected.cmd)
+        })
+        it('with the ' + test.args.command + ' command it stores the previous accumulator in op', async () => {
+          assert.strictEqual((await execCommand(test.args.status, test.args.command)).op, test.expected.op)
+        })
+        it('with the ' + test.args.command + ' command it clears the accumulator', async () => {
+          assert.strictEqual((await execCommand(test.args.status, test.args.command)).acc, test.expected.acc)
+        })
+        it('with the ' + test.args.command + ' command it returns the function passed', async () => {
+          assert.deepStrictEqual((await execCommand(test.args.status, test.args.command)).functions, test.args.status.functions)
+        })
+      })
+    })
+    describe('minus command', () => {
+      it('is interpreted as a minus command if the accumulator as a value', async () => {
+        assert.deepStrictEqual((await execCommand({ acc: '123', cmd: '', op: '', functions: {} }, 'minus')), { acc: '', cmd: '-', op: '123', functions: {} })
+      })
+      it('makes the accumulator negative when the accumulator is clear', async () => {
+        assert.deepStrictEqual((await execCommand({ acc: '', cmd: '', op: '', functions: {} }, 'minus')), { acc: '-', cmd: '', op: '', functions: {} })
+      })
+    })
+    describe('clear command', () => {
+      it('it clear the accumulator if has a value', async () => {
+        assert.deepStrictEqual((await execCommand({ acc: '123', cmd: '-', op: '5', functions: {} }, 'clear')), { acc: '', cmd: '-', op: '5', functions: {} })
+      })
+      it('clears the whole status when the accumulator is clear', async () => {
+        assert.deepStrictEqual((await execCommand({ acc: '', cmd: '-', op: '5', functions: {} }, 'clear')), { acc: '', cmd: '', op: '', functions: {} })
+      })
+    })
+    describe('equal command', () => {
+      it('is a no operation when the command is empty', async () => {
+        assert.deepStrictEqual((await execCommand({ acc: '123', cmd: '', op: '', functions: {} }, 'equal')), { acc: '123', cmd: '', op: '', functions: {} })
+      })
+      it('is a no operation when the command is erro', async () => {
+        assert.deepStrictEqual((await execCommand({ acc: '123', cmd: 'E', op: '', functions: {} }, 'equal')), { acc: '123', cmd: 'E', op: '', functions: {} })
+      })
+      it('is a no operation when the command is =', async () => {
+        assert.deepStrictEqual((await execCommand({ acc: '123', cmd: '=', op: '', functions: {} }, 'equal')), { acc: '123', cmd: '=', op: '', functions: {} })
+      })
+      it('execute the operation configured', async () => {
+        assert.deepStrictEqual((await execCommand({ acc: '10', cmd: '-', op: '5', functions: {} }, 'equal')), { acc: '-5', cmd: '=', op: '', functions: {} })
+      })
+    })
+    describe('copy command', () => {
+      it('calls the configured copy fuction', async () => {
+        let res
+        async function copyFunc (st) {
+          res = st
+          return st
+        }
+        const status = { acc: '123', cmd: '-', op: '5', functions: { copy: copyFunc } }
+        assert.deepStrictEqual((await execCommand(status, 'copy')), status)
+        assert.deepStrictEqual(res, status)
       })
     })
   })

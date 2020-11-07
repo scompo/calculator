@@ -34,10 +34,6 @@ async function clearAccumulator (status) {
   }
 }
 
-async function getOutput (status) {
-  return (status.op + ' ' + status.cmd + ' ' + status.acc).trim()
-}
-
 async function execExternalFunction (status, funcName) {
   const f = (status && status.functions && status.functions[funcName]) ? status.functions[funcName] : unit
   return f(status)
@@ -63,7 +59,7 @@ async function storeOpAndClear (status, cmd) {
   return {
     acc: '',
     op: status.acc,
-    cmd: status.cmd,
+    cmd: cmd,
     functions: status.functions
   }
 }
@@ -199,7 +195,6 @@ async function execCommand (status, cmd) {
 export {
   newStatus,
   execCommand,
-  getOutput,
   clearAccumulator,
   error,
   removeLastNumber,
