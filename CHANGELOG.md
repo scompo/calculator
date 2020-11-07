@@ -4,16 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog][keep-a-changelog]
 and this project adheres to [Semantic Versioning][sem-ver].
 
-## [Unreleased][Unreleased]
+## [Unreleased]
+### Changed
+- formatted style.css
 
-[0.0.3][0.0.3] - 2020/11/07
+[0.0.3] - 2020/11/07
 ### Added
 -   Added unit tests for missing functions in `calculator.js`.
 
 ### Changed
 -   Moved `getOutput` from `calculator.js` to `main.js`.
 
-## [0.0.2][0.0.2] - 2020-11-05
+## [0.0.2] - 2020-11-05
 ### Added
 - Added this changelog file.
 - Exported the styles from the `index.html` page to the `style.css` file.

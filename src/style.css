@@ -1,45 +1,45 @@
 body {
-	font-family: sans-serif;
-	font-size: 30px;
+  font-family: sans-serif;
+  font-size: 30px;
 }
 
 button {
-	font-size: 1em;
+  font-size: 1em;
 }
 
 main {
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 1fr 10fr;
-	grid-gap: 20px;
-	height: 90vh;
-	width: 70vw;
-	margin:auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 10fr;
+  grid-gap: 20px;
+  height: 90vh;
+  width: 70vw;
+  margin:auto;
 }
 
 #calc {
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 2fr 10fr;
-	grid-gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 10fr;
+  grid-gap: 20px;
 }
 
 #keypad {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-	grid-gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
 }
 
 #display {
-	font-size: 1.5em;
-	text-align: right;
-	overflow: hidden;
-	max-height: 50px;
+  font-size: 1.5em;
+  text-align: right;
+  overflow: hidden;
+  max-height: 50px;
 }
 
 @media only screen and (orientation: portrait) {
-	main {
-		width: 90vw;
-	}
+  main {
+    width: 90vw;
+  }
 }
