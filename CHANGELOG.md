@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog][keep-a-changelog]
 and this project adheres to [Semantic Versioning][sem-ver].
 
 ## [Unreleased]
+
+## [0.0.5] - 2020/11/09
 ### Fixed
 - Fixed link for unreleased changes in changelog.
 - Fixed adding of multiple dots. See [issue #9][issue9].
@@ -57,7 +59,8 @@ Now it deletes the last char from the accumulator as expected.
 - Added the `main.js` file for the page setup.
 - Setup GitHub pages to serve the application.
 
-[Unreleased]: https://github.com/scompo/calculator/compare/v0.0.4...HEAD
+[Unreleased]: https://github.com/scompo/calculator/compare/v0.0.5...HEAD
+[0.0.5]: https://github.com/scompo/calculator/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/scompo/calculator/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/scompo/calculator/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/scompo/calculator/compare/v0.0.1...v0.0.2
