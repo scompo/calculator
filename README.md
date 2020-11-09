@@ -1,5 +1,7 @@
 # calculator
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/346013dcc92a49009a77fd4f3482898c)](https://app.codacy.com/gh/scompo/calculator?utm_source=github.com&utm_medium=referral&utm_content=scompo/calculator&utm_campaign=Badge_Grade_Settings)
+
 A calculator in javascript and html.
 
 ## Status
