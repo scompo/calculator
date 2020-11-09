@@ -38,7 +38,4 @@ main {
     width: 90vw;
   }
 
-  #keypad {
-    grid-gap: 5vh;
-  }
 }
