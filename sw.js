@@ -9,12 +9,12 @@ self.addEventListener('install', e => {
   e.waitUntil(caches.open(CURRENT_VERSION)
     .then(cache => {
       return cache.addAll([
-        '/calculator/',
-        '/calculator/index.html',
-        '/calculator/style.css',
-        '/calculator/main.js',
-        '/calculator/icon.png',
-        '/calculator/modules/calculator.js'
+        './',
+        './index.html',
+        './style.css',
+        './main.js',
+        './icon.png',
+        './modules/calculator.js'
       ])
     })
   )
