@@ -376,6 +376,9 @@ describe('calculator', () => {
           assert.strictEqual((await execCommand(test.args.status, test.args.command)).acc, test.expected)
         })
       })
+      it('returns the same state when adding more than 1 dot', async () => {
+        assert.deepStrictEqual((await execCommand({ acc: '0.', cmd: '', op: '', functions: {} }, '.')), { acc: '0.', cmd: '', op: '', functions: {} })
+      })
     })
     it('returns error for an unknown command', async () => {
       assert.deepStrictEqual((await execCommand(await newStatus({}), 'unknown')), { acc: '', cmd: '', op: 'E', functions: {} })
