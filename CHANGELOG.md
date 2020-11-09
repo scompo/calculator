@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning][sem-ver].
 
 ## [Unreleased]
 ### Fixed
+- Fixed link for unreleased changes in changelog.
 - Fixed adding of multiple dots. See [issue #9][issue9].
 - Fixed error in '%' key press calling divide instead of modulus.
 - Fixed browser overriding key presses with default behaviour. See [issue #11][issue11].
@@ -56,7 +57,7 @@ Now it deletes the last char from the accumulator as expected.
 - Added the `main.js` file for the page setup.
 - Setup GitHub pages to serve the application.
 
-[Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v0.0.4...HEAD
+[Unreleased]: https://github.com/scompo/calculator/compare/v0.0.4...HEAD
 [0.0.4]: https://github.com/scompo/calculator/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/scompo/calculator/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/scompo/calculator/compare/v0.0.1...v0.0.2
