@@ -1,0 +1,13 @@
+{
+	"background_color":"white",
+	"name":"calculator",
+	"short_name":"calculator",
+	"description":"A basic calculator.",
+	"display":"fullscreen",
+	"start_url":"/index.html",
+	"icons":[{
+		"src":"icon.png",
+		"sizes":"512x512",
+		"type":"image/png"
+	}]
+}
