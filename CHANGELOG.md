@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning][sem-ver].
 ## [Unreleased]
 ### Fixed
 - Fixed adding of multiple dots. See [issue #9][issue9].
+- Fixed error in '%' keypress calling divide instead of modulus.
 
 ## [0.0.4] - 2020/11/07
 ### Added

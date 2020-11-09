@@ -50,7 +50,7 @@ async function main () {
         } else if (e.key === '/') {
           command = 'div'
         } else if (e.key === '%') {
-          command = 'div'
+          command = 'mod'
         } else if (['Enter', '='].includes(e.key)) {
           command = 'equal'
         }
