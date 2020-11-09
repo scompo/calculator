@@ -1,11 +1,13 @@
 # calculator
 
+
 A calculator in javascript and html.
 
 ## Status
 
-![coverage](https://codecov.io/gh/scompo/calculator/branch/main/graph/badge.svg)
-![tests](https://github.com/scompo/calculator/workflows/Node.js%20CI/badge.svg)
+[![coverage](https://codecov.io/gh/scompo/calculator/branch/main/graph/badge.svg)](https://codecov.io/gh/scompo/calculator)
+[![tests](https://github.com/scompo/calculator/workflows/Node.js%20CI/badge.svg)](https://github.com/scompo/calculator/actions?query=workflow%3A%22Node.js+CI%22)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/346013dcc92a49009a77fd4f3482898c)](https://app.codacy.com/gh/scompo/calculator?utm_source=github.com&utm_medium=referral&utm_content=scompo/calculator&utm_campaign=Badge_Grade_Settings)
 
 ## Use it
 
