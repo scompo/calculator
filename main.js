@@ -9,7 +9,7 @@ async function getOutput (status) {
 async function main () {
   if ('serviceWorker' in navigator) {
     console.log('service worker available, registering mine...')
-    navigator.serviceWorker.register('/sw.js', { scope: './' })
+    navigator.serviceWorker.register('./sw.js')
       .then(() => {
         console.log('service worker registered correctly')
       })
