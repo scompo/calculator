@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning][sem-ver].
 
 ## [Unreleased]
 
+## [0.0.6] - 2020/11/10
+### Added
+- Added PWA configuration. (Works on chrome, not of firefox)
+
 ## [0.0.5] - 2020/11/09
 ### Fixed
 - Fixed link for unreleased changes in changelog.
@@ -59,7 +63,8 @@ Now it deletes the last char from the accumulator as expected.
 - Added the `main.js` file for the page setup.
 - Setup GitHub pages to serve the application.
 
-[Unreleased]: https://github.com/scompo/calculator/compare/v0.0.5...HEAD
+[Unreleased]: https://github.com/scompo/calculator/compare/v0.0.6...HEAD
+[0.0.6]: https://github.com/scompo/calculator/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/scompo/calculator/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/scompo/calculator/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/scompo/calculator/compare/v0.0.2...v0.0.3
