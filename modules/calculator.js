@@ -246,9 +246,15 @@ async function execCommand (status, cmd) {
     case '8':
     case '9':
     case '0':
-    case '.':
       return resetIfEqual(status)
         .then(res => concatAccumulator(res, cmd))
+    case '.':
+      if (status.acc.includes('.')) {
+        return unit(status)
+      } else {
+        return resetIfEqual(status)
+          .then(res => concatAccumulator(res, cmd))
+      }
     case 'clear':
       if (status.acc.length) {
         return clearAccumulator(status)
