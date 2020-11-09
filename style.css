@@ -39,6 +39,6 @@ main {
   }
 
   #keypad {
-    grid-gap: 5vh;
+    grid-gap: 1vh;
   }
 }
