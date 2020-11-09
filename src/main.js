@@ -56,6 +56,7 @@ async function main () {
         }
 
         if (command) {
+          e.preventDefault()
           execCommand(status, command)
             .then(res => {
               return getOutput(res)

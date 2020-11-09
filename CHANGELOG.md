@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning][sem-ver].
 ## [Unreleased]
 ### Fixed
 - Fixed adding of multiple dots. See [issue #9][issue9].
-- Fixed error in '%' keypress calling divide instead of modulus.
+- Fixed error in '%' key press calling divide instead of modulus.
+- Fixed browser overriding key presses with default behaviour. See [issue #11][issue11].
+- Fixed typos in the changelog.
 
 ## [0.0.4] - 2020/11/07
 ### Added
@@ -60,6 +62,7 @@ Now it deletes the last char from the accumulator as expected.
 [0.0.2]: https://github.com/scompo/calculator/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/scompo/calculator/releases/tag/v0.0.1
 
+[issue11]: https://github.com/scompo/calculator/issues/11
 [issue9]: https://github.com/scompo/calculator/issues/9
 [issue7]: https://github.com/scompo/calculator/issues/7
 [issue2]: https://github.com/scompo/calculator/issues/2
