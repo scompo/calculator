@@ -7,6 +7,19 @@ async function getOutput (status) {
 }
 
 async function main () {
+  if ('serviceWorker' in navigator) {
+    console.log('service worker available, registering mine...')
+    navigator.serviceWorker.register('/sw.js', { scope: './' })
+      .then(() => {
+        console.log('service worker registered correctly')
+      })
+      .catch(e => {
+        console.error('error registering service worker:', e)
+        throw e
+      })
+  } else {
+    console.log('service worker not available')
+  }
   const display = document.getElementById('out')
   const buttons = document.getElementsByTagName('button')
   return newStatus({
