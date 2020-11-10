@@ -1,5 +1,8 @@
 # calculator
 
+[![icon](https://scompo.github.io/calculator/icon.png)](https://scompo.github.io/calculator/)
+
+Icon by [cicce][cicce]
 
 A calculator in javascript and html.
 
@@ -40,3 +43,5 @@ Documentation: https://docs.python.org/3/library/http.server.html
 ### View it
 
 Open up http://localhost:8080/ in a browser.
+
+[cicce]: https://ciccehc.threadless.com/

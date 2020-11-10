@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog][keep-a-changelog]
 and this project adheres to [Semantic Versioning][sem-ver].
 
 ## [Unreleased]
+### Added
+- Added icon to readme file. Thank you [cicce][cicce]!
 
 ## [0.0.6] - 2020/11/10
 ### Added
@@ -78,3 +80,4 @@ Now it deletes the last char from the accumulator as expected.
 [jsdoc]: https://github.com/jsdoc/jsdoc
 [keep-a-changelog]: https://keepachangelog.com/en/1.0.0/
 [sem-ver]: https://semver.org/spec/v2.0.0.html
+[cicce]: https://ciccehc.threadless.com/
