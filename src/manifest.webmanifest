@@ -1,6 +1,6 @@
 {
-	"background_color":"white",
-	"theme_color":"white",
+	"background_color":"#abc8c6",
+	"theme_color":"#abc8c6",
 	"name":"calculator",
 	"short_name":"calculator",
 	"description":"A basic calculator.",
