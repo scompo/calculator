@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning][sem-ver].
 ### Added
 - Added icon to readme file. Thank you [cicce][cicce]!
 
+### Changed
+- Changed colors to reflect the icon. See [issue 14][issue14].
+
 ## [0.0.6] - 2020/11/10
 ### Added
 - Added PWA configuration. (Works on chrome, not of firefox)
@@ -73,6 +76,7 @@ Now it deletes the last char from the accumulator as expected.
 [0.0.2]: https://github.com/scompo/calculator/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/scompo/calculator/releases/tag/v0.0.1
 
+[issue14]: https://github.com/scompo/calculator/issues/14
 [issue11]: https://github.com/scompo/calculator/issues/11
 [issue9]: https://github.com/scompo/calculator/issues/9
 [issue7]: https://github.com/scompo/calculator/issues/7
