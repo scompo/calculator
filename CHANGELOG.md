@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog][keep-a-changelog]
 and this project adheres to [Semantic Versioning][sem-ver].
 
 ## [Unreleased]
+
+## [0.0.7] - 2020/11/14
 ### Added
 - Added icon to readme file. Thank you [cicce][cicce]!
 
@@ -68,7 +70,8 @@ Now it deletes the last char from the accumulator as expected.
 - Added the `main.js` file for the page setup.
 - Setup GitHub pages to serve the application.
 
-[Unreleased]: https://github.com/scompo/calculator/compare/v0.0.6...HEAD
+[Unreleased]: https://github.com/scompo/calculator/compare/v0.0.7...HEAD
+[0.0.7]: https://github.com/scompo/calculator/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/scompo/calculator/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/scompo/calculator/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/scompo/calculator/compare/v0.0.3...v0.0.4

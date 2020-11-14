@@ -1,6 +1,6 @@
 /* global caches, self, fetch */
 
-const CURRENT_VERSION = 'v0.0.6'
+const CURRENT_VERSION = 'v0.0.7'
 
 console.log('current version:', CURRENT_VERSION)
 
