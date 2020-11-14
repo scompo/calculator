@@ -1,10 +1,15 @@
 body {
+  background-color: #abc8c6;
   font-family: sans-serif;
   font-size: 30px;
 }
 
 button {
   font-size: 1em;
+  background-color: #242f3a;
+  color: white;
+  border-style: unset;
+  border-radius: 10px;
 }
 
 main {
